@@ -86,17 +86,21 @@ print(input())
 print(input("enter your age:"))
 
 #example: converting input to int
-new_age = int(input("enter your age: "))
-print(age + new_age)
+# new_age = int(input("enter your age: "))
+# print(age + new_age)
 
 
 #mini challege
 
 pizzas_slices = int(input("enter pizza slices"))
+people = int(input("enter how many people"))
 
-person = int(input("how manny"))
-print(f"Hello" {pizza_slice}"
-slice_per_person = pizzas_slices / person
+slice_per_person = pizzas_slices / people
+
+print(slice_per_person)
+
+
+
 
       
 """
