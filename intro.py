@@ -102,6 +102,9 @@ print(slice_per_person)
 
 
 
+
+
+
       
 """
 echo "# intro-python-FSDI-108" >> README.md
