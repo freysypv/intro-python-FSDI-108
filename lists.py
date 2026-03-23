@@ -59,7 +59,7 @@ print(len(fruits))# return number of items in container
 
 
 # list creation
-planets = [ "Mars", "Venus", "Mercury", "Earth","Saturn", "Jupiter"]
+planets = [ "Mars", "Venus", "Mercury", "Earth","Saturn" "Jupiter"]
 print(f"list; {planets} length: {len(planets)}")
 
 #Printing the third planet mercury

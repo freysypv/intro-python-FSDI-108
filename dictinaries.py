@@ -93,7 +93,7 @@ print(f"int dictionary: {bike} length: [len(bike)]")
 #2 getting values by key
 
 bike_brand = bike["brand"]
-print(f"bike brand is:{bike_brand}")
+print(f"bike brand is: {bike_brand}")
 
 #3 adding new key values
 bike["color"] = "red"
