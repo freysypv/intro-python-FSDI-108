@@ -19,21 +19,6 @@ def print_menu():
     print("Q.- Quit")
 
     #catalog and Cart Function
-def print_catalog():
-    print_header("- Our Catalog -")
-    for prod in catalog: 
-         # L just means left. 15 spaces to the right
-       
-        print(f"| {prod['id']} | {prod['title'].ljust(15)} | {(prod["price"]):.2f}")
-
-
-    answer = input("Type ID to add (N to cancel):")
-    if answer.lower() == "n":
-        return
-    else:
-        add_product_to_cart(answer)
-    print("------------------------")
-
 def add_product_to_cart(prod_id):
     found = False
     for prod in catalog:
@@ -46,33 +31,50 @@ def add_product_to_cart(prod_id):
     if not found:
         print("Item does not exist")
 
+def print_catalog():
+    print_header("- Our Catalog -")
+    for prod in catalog: 
+         # L just means left. 15 spaces to the right
+       
+        print(f"| {prod["id"]} | {prod["title"].ljust(15)} | ${(prod["price"])}")
+
+
+    answer = input("Type ID to add (N to cancel):")
+    if answer.lower() == "n":
+        return
+    else:
+        add_product_to_cart(answer)
+    print("------------------------")
+
+
+
 def search_product():
     text = input("Search text: ").lower()  
     found = False
     for prod in catalog:
         if text in prod["title"].lower():
             found = True
-            
-        print(f"| {prod['id']} | {prod['title'].ljust(15)} | {(prod["price"]):.2f}")
+            print(f"| {prod["id"]} | {prod["title"].ljust(15)} | ${(prod["price"])}")
 
-        choice = input("do you want to add this item to your cart? (y/n)")
-        if choice.lower() == "y":
-            add_product_to_cart(prod["id"])
-        break # stop after fist match
+            choice = input("do you want to add this item to your cart? (y/n)")
+            if choice.lower() == "y":
+                add_product_to_cart(prod["id"])
+        # break # stop after fist match
 
     if not found:
         print("sorry, this items doesn't exist.")
-    print("----------------------")
+        print("----------------------")
 
 def view_cart():
-    print_header("your Cart")  
+    print_header("Your Cart")  
     if not cart:
          print("Your cart is empty")
     else:
+        # Loop through and display each item
         for prod in cart:
-            print(f"| {prod['id']} | {prod['title'].ljust(15)} | {(prod["price"]):.2f}")
-
-        cart_total() # shows total price   
+            print(f"| {prod["id"]} | {prod["title"].ljust(15)} | ${(prod["price"])}")
+        print("--------------------------")
+    cart_total() # shows total price       
 
 def cart_total():
     #for loop total += prod"price"
@@ -80,7 +82,9 @@ def cart_total():
     total = 0 # start from 0 and prices up
     for prod in cart:
         total += prod["price"] # add product price to total
-    print(f"Total is: ${total:.2f}") 
+       
+    print(f"Total is: ${total}") 
+    
 
  # create a function called clear_cart()
  #code it should crear the cart
@@ -95,16 +99,17 @@ def clear_cart():
 option = ""
 while option != "q" and option != "Q":
     print_header("Welcome to Store")
+    print_menu()
     option = input("Choose an option: ")
 
     if option == "1":
-       print_catalog()
+      print_catalog()
     elif option == "2":
         search_product()
     elif option == "3":
         view_cart()
     elif option == "4": # Added to loop
-        clear_cart
+        clear_cart()
     elif option == "q" or option == "Q":
         print("Good Bye")
         break
@@ -118,7 +123,7 @@ while option != "q" and option != "Q":
 
 
 
-   
+
 
 
 

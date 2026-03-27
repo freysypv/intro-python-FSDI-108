@@ -18,6 +18,6 @@ catalog=[
     {
         "id": "4",
         "title": "notebook",
-        "prince": "3.98" 
+        "price": "3.98" 
     }
 ]
